@@ -1,4 +1,4 @@
-# shell.arnaupg.com
+# Reverse-shell-web
 
 > Reverse shell as a service. One URL, one pipe, a shell.
 
