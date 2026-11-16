@@ -122,6 +122,7 @@ function parseTarget(raw) {
 // Vercel forwards the original path in a header after rewriting to /api.
 function pathOf(req) {
   const header = req.headers['x-forwarded-uri'] || req.headers['x-invoke-path'];
+  // The local server supplies the path in req.url.
   const raw = String(header || req.url || '/');
 
   return raw
@@ -150,6 +151,7 @@ function render(req) {
 module.exports = (req, res) => {
   const body = render(req);
 
+  // Usage text also returns HTTP 200.
   res.writeHead(200, {
     'Content-Type': 'text/plain; charset=utf-8',
     'Cache-Control': 'no-store',
